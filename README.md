@@ -81,4 +81,3 @@ as well as the views/models responsible for the facebook --> django user mapping
 
 Security code for validating the signedRequest is by Sunil Arora:
 http://sunilarora.org/parsing-signedrequest-parameter-in-python-bas
-
