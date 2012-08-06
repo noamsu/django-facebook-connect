@@ -22,7 +22,6 @@ class FacebookClientScriptNode(template.Node):
 
         return """
 
-<script src="http://connect.facebook.net/en_US/all.js"></script>
 <div id="fb-root"></div>
 <script type="text/javascript"> 
     
@@ -62,13 +61,22 @@ class FacebookClientScriptNode(template.Node):
         })
     }
 
-    FB.init({
-        appId: '%(facebook_app_id)s',
-        status : true,
-        cookie: true,
-        xfbml : true,
-        channelURL : '%(channel_url)s'
-    })
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '%(facebook_app_id)s',
+            status : true,
+            cookie: true,
+            xfbml : true,
+            channelURL : '%(channel_url)s'
+        })
+    };
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
 </script>
 """ % params
 
