@@ -15,16 +15,16 @@ You will need to create a Facebook application for facebook connect to work.
 
 Set the "Site URL", located in your facebook applications settings to:
 
-http://<your-project's-address>/facebook_connect
+	http://<your-project's-address>/facebook_connect
 
 Note: during development, you may set the above to localhost, e.g. http://127.0.0.1:8000/facebook_connect
 
 Configure the following settings in your settings.py:
 
-FACEBOOK_LOGIN_REDIRECT = "/"                              # (optional, defaults to "/")
-FACEBOOK_APP_ID = "<place your app id here>"               # required
-FACEBOOK_APP_SECRET = "<place your app secret code here>"  # required
-FACEBOOK_SCOPE = "email"						           # (optional, defaults to "email")
+	FACEBOOK_LOGIN_REDIRECT = "/"                              # (optional, defaults to "/")
+	FACEBOOK_APP_ID = "<place your app id here>"               # required
+	FACEBOOK_APP_SECRET = "<place your app secret code here>"  # required
+	FACEBOOK_SCOPE = "email"						           # (optional, defaults to "email")
 
 Note: FACEBOOK_SCOPE determines what permissions facebook will ask from your users,
 	  and in turn, give you access to. For example, your scope may look like:
@@ -36,29 +36,29 @@ Note: FACEBOOK_SCOPE determines what permissions facebook will ask from your use
 
 Add "facebook_connect" to your list of installed apps:
 
-INSTALLED_APPS = (
-    'facebook_connect',
-)
+	INSTALLED_APPS = (
+    	'facebook_connect',
+	)
 
 And include faceboook_connect.urls within your urls.py:
 
-urlpatterns = pattern('',
+	urlpatterns = pattern('',
   
-   (r'^facebook_connect/', include('facebook_connect.urls')),
+   		(r'^facebook_connect/', include('facebook_connect.urls')),
 
-)
+	)
 
 Finally, run:
 
-python manage.py syncdb 
+	python manage.py syncdb 
 
 Or, if you're using South:
 
-python manage.py schemamigration facebook_connect --initial
+	python manage.py schemamigration facebook_connect --initial
 
 to create the initial migration, and
 
-python manage.py migrate facebook_connect
+	python manage.py migrate facebook_connect
 
 to migrate the database.
 
@@ -67,10 +67,10 @@ Usage
 
 These tags are now usable in your templates:
 
-{% load facebook_connect %}
-{% facebook_button %}                
+	{% load facebook_connect %}
+	{% facebook_button %}                
 
-{% facebook_script %}
+	{% facebook_script %}
 
 
 Credits
