@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+recursive-include facebook_connect/facebook_python_sdk *
+recursive-include facebook_connect/templatetags *
+recursive-include facebook_connect/templates *

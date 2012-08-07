@@ -117,7 +117,6 @@ def json_response(content, status=200):
     """
     json_content = json.dumps(content)
     response = HttpResponse(json_content, status=status)
-    response["Content-Length"] = str(len(response.content))
     return response
 
 def base64_url_decode(inp):
