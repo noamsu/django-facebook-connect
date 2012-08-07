@@ -19,11 +19,18 @@ Set the "Site URL", located in your facebook applications settings to:
 
 Note: during development, you may set the above to localhost, e.g. http://127.0.0.1:8000/facebook_connect
 
+Next, install this package by running:
+
+	pip install django-facebook-connect
+
 Configure the following settings in your settings.py:
 
 	FACEBOOK_LOGIN_REDIRECT = "/"                              # (optional, defaults to "/")
+	
 	FACEBOOK_APP_ID = "<place your app id here>"               # required
+	
 	FACEBOOK_APP_SECRET = "<place your app secret code here>"  # required
+	
 	FACEBOOK_SCOPE = "email"						           # (optional, defaults to "email")
 
 Note: FACEBOOK_SCOPE determines what permissions facebook will ask from your users,
@@ -68,10 +75,13 @@ Usage
 These tags are now usable in your templates:
 
 	{% load facebook_connect %}
+	
 	{% facebook_button %}                
 
 	{% facebook_script %}
 
+
+If you would like to override the default button (facebook_button tag), to choose a different image and have more control, you'll need to trigger (on click) the 'facebook_connect()' function that starts the login process.
 
 Credits
 ==============
