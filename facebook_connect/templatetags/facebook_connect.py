@@ -12,11 +12,13 @@ class FacebookClientScriptNode(template.Node):
 
         facebook_app_id = settings.FACEBOOK_APP_ID
         channel_url = reverse('channel_url')
+        connect_url = reverse('facebook_connect')
 
         params = {
             "scope":scope,
             "facebook_app_id":facebook_app_id,
             "channel_url":channel_url,
+            "connect_url":connect_url,
             "redirect":redirect
         }
 
@@ -52,7 +54,7 @@ class FacebookClientScriptNode(template.Node):
 
         $.ajax({
             type:"POST",
-            url: "/facebook_connect/facebook_connect/",
+            url: "%(connect_url)s",
             dataType: "json",
             data: ajax_data,
             success: function(msg){
